@@ -3,6 +3,7 @@ defmodule ExUbx do
     alias ExUbx.Api.Auth, as: AuthApi
     alias ExUbx.Api.Performance, as: PerformanceApi
     alias ExUbx.Api.Struct.Auth, as: AuthStruct
+    alias ExUbx.Api.Struct.Performance, as: PerformanceStruct
 
     def fetch_auth do
         response = AuthApi.request_auth_token()
@@ -17,8 +18,11 @@ defmodule ExUbx do
         }
     end
 
-    def fetch_performance do
+    def fetch_performance(cookie) do
+        response = PerformanceApi.request_json(cookie, 30816)
+        body     = response.body
 
+        body
     end
 
 end
