@@ -33,4 +33,35 @@ defmodule ExUbx do
         }
     end
 
+    def convert_performances(performancce_struct) do
+        performances = performancce_struct.performances
+        status       = performancce_struct.status
+
+        # performances = for { performance, index } <- Enum.with_index performances do
+        #     [] ++ Map.put(performance, "status", Enum.at(status, index))
+        # end
+        # performances
+
+        # performances
+        #     |> Enum.with_index
+        #     |> Enum.reduce([], fn { performance, index }, accumulator ->
+        #             accumulator ++ [Map.put(performance, "status", Enum.at(status, index))]
+        #        end)
+
+        # performances
+        #     |> Enum.with_index
+        #     |> Enum.map(fn { performance, index } ->
+        #             Map.put(performance, "status", Enum.at(status, index))
+        #        end)
+
+        # performances
+        #     |> Enum.with_index
+        #     |> Enum.map(&(Map.put(elem(&1, 0), "status", Enum.at(status, elem(&1, 1)))))
+
+        performances
+            |> Stream.with_index
+            |> Stream.map(&(Map.put(elem(&1, 0), "status", Enum.at(status, elem(&1, 1)))))
+            |> Enum.to_list
+    end
+
 end

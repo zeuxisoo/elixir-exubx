@@ -19,4 +19,12 @@ defmodule ExUbxTest do
         assert is_list(data.status)
     end
 
+    test "ExUbx.convert_performances response is correct" do
+        auth   = ExUbx.fetch_auth
+        data   = ExUbx.fetch_performance(auth.cookie, 30816)
+        events = ExUbx.convert_performances(data)
+
+        assert is_list(events)
+    end
+
 end
