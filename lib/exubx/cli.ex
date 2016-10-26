@@ -13,6 +13,8 @@ defmodule ExUbx.CLI do
         "version" => ExUbx.CLI.Command.Version,
     }
 
+    def commands, do: Map.keys(@commands)
+
     def main(argv) do
         argv
             |> parse_options
@@ -40,8 +42,6 @@ defmodule ExUbx.CLI do
 
     def call_command(nil), do: nil
     def call_command(command) do
-        commands = Map.keys(@commands)
-
         if Enum.member?(commands, command) do
             @commands[command]
         else
