@@ -6,6 +6,12 @@ defmodule ExUbx do
     alias ExUbx.Api.Struct.Performance, as: PerformanceStruct
     alias Poison.Parser, as: JsonParser
 
+    @version Mix.Project.config[:version]
+
+    def version do
+        @version
+    end
+
     def fetch_auth do
         response = AuthApi.request_auth_token()
         headers  = response.headers.hdrs
