@@ -10,6 +10,7 @@ defmodule ExUbx.CLI do
 
     @commands %{
         "help" => ExUbx.CLI.Command.Help,
+        "list" => ExUbx.CLI.Command.List,
         "version" => ExUbx.CLI.Command.Version,
     }
 
