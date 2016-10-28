@@ -39,9 +39,9 @@ defmodule ExUbx do
         }
     end
 
-    def convert_performances(performancce_struct) do
-        performances = performancce_struct.performances
-        status       = performancce_struct.status
+    def convert_performances(performance_struct) do
+        performances = performance_struct.performances
+        status       = performance_struct.status
 
         # performances = for { performance, index } <- Enum.with_index performances do
         #     [] ++ Map.put(performance, "status", Enum.at(status, index))
