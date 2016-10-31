@@ -1,4 +1,9 @@
 defmodule ExUbx do
+    @moduledoc """
+    The base module of ExUbx.
+
+    A `HTTPotion` module to provide the a basic method for other module to call.
+    """
 
     alias ExUbx.Api.Auth, as: AuthApi
     alias ExUbx.Api.Performance, as: PerformanceApi
@@ -6,12 +11,18 @@ defmodule ExUbx do
     alias ExUbx.Api.Struct.Performance, as: PerformanceStruct
     alias Poison.Parser, as: JsonParser
 
+    @type auth_struct_t :: %AuthStruct{}
+    @type performance_struct_t :: %PerformanceStruct{}
+
     @version Mix.Project.config[:version]
 
+    @doc false
     def version do
         @version
     end
 
+    @doc "Return `ExUbx.Api.Struct.Auth` struct included cookie and location"
+    @spec fetch_auth() :: auth_struct_t
     def fetch_auth do
         response = AuthApi.request_auth_token()
         headers  = response.headers.hdrs
@@ -25,6 +36,8 @@ defmodule ExUbx do
         }
     end
 
+    @doc "Return `ExUbx.Api.Struct.Performance` struct included performances and status"
+    @spec fetch_performance(term, integer) :: performance_struct_t
     def fetch_performance(cookie, event_id) do
         response = PerformanceApi.request_json(cookie, event_id)
         body     = response.body
@@ -39,6 +52,8 @@ defmodule ExUbx do
         }
     end
 
+    @doc "Return converted performance list by mixing performance and status"
+    @spec convert_performances(performance_struct_t) :: list
     def convert_performances(performance_struct) do
         performances = performance_struct.performances
         status       = performance_struct.status
