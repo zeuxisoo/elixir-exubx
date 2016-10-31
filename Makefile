@@ -4,7 +4,7 @@ usage:
 	@echo "make hex"
 	@echo "make rebar"
 	@echo "make deps"
-	@echo "make run"
+	@echo "make publish"
 
 hex:
 	@rm -rf ~/.mix/archives/hex-*
@@ -19,5 +19,5 @@ deps: hex rebar
 	@rm -rf ./deps
 	@mix deps.get
 
-run:
-	@mix run
+publish:
+	@mix hex.publish
