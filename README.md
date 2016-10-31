@@ -77,3 +77,7 @@ Example (convert performances for mix the performances and status)
      ......
      ......
      ......]
+
+## Documentation
+
+You can find in [Here](https://hexdocs.pm/exubx)
