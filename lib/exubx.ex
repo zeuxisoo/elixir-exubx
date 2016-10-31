@@ -2,7 +2,7 @@ defmodule ExUbx do
     @moduledoc """
     The base module of ExUbx.
 
-    A `HTTPotion` module to provide the a basic method for other module to call.
+    A `ExUbx` module to provide the a basic method for other module to call.
     """
 
     alias ExUbx.Api.Auth, as: AuthApi
