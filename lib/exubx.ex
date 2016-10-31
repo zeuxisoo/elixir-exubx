@@ -11,8 +11,8 @@ defmodule ExUbx do
     alias ExUbx.Api.Struct.Performance, as: PerformanceStruct
     alias Poison.Parser, as: JsonParser
 
-    @type auth_struct_t :: %AuthStruct{}
-    @type performance_struct_t :: %PerformanceStruct{}
+    @type auth_struct_t :: AuthStruct.t
+    @type performance_struct_t :: PerformanceStruct.t
 
     @version Mix.Project.config[:version]
 
