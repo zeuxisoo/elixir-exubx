@@ -11,7 +11,15 @@ defmodule ExUbx.Mixfile do
             start_permanent: Mix.env == :prod,
             deps: deps(),
             package: package(),
-            description: "A fetch tool for listing the remote ubx performance list."
+            description: "A fetch tool for listing the remote ubx performance list.",
+
+            name: "ExUbx",
+            source_url: "https://github.com/zeuxisoo/elixir-exubx",
+            homepage_url: "https://github.com/zeuxisoo/elixir-exubx",
+            docs: [
+                main: "ExUbx",
+                extras: ["README.md"]
+            ]
         ]
     end
 
@@ -36,7 +44,8 @@ defmodule ExUbx.Mixfile do
     defp deps do
         [
             { :httpotion, "~> 3.0.2" },
-            { :poison, "~> 3.0" }
+            { :poison, "~> 3.0" },
+            { :ex_doc, "~> 0.14.3" }
         ]
     end
 

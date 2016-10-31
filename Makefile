@@ -21,3 +21,6 @@ deps: hex rebar
 
 publish:
 	@mix hex.publish
+
+docs:
+	@mix docs
