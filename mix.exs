@@ -5,8 +5,8 @@ defmodule ExUbx.Mixfile do
     def project do
         [
             app: :exubx,
-            version: "0.1.0",
-            elixir: "~> 1.3",
+            version: "0.2.0",
+            elixir: "~> 1.6",
             build_embedded: Mix.env == :prod,
             start_permanent: Mix.env == :prod,
             deps: deps(),
@@ -43,9 +43,9 @@ defmodule ExUbx.Mixfile do
     # Type "mix help deps" for more examples and options
     defp deps do
         [
-            { :httpotion, "~> 3.0.2" },
-            { :poison, "~> 3.0" },
-            { :ex_doc, "~> 0.14.3" }
+            { :httpotion, "~> 3.1" },
+            { :poison, "~> 4.0" },
+            { :ex_doc, "~> 0.19.3" },
         ]
     end
 
