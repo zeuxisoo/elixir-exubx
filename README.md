@@ -9,7 +9,7 @@ Add as a dependency in your mix.exs file:
 ```elixir
 defp deps do
   [
-    { :exubx, "~> 0.1" }
+    { :exubx, "~> 0.2" }
   ]
 end
 ```
