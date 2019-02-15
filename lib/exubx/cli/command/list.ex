@@ -4,7 +4,7 @@ defmodule ExUbx.CLI.Command.List do
 
     def run(_, kwargs) do
         if Enum.empty?(kwargs) === true || Keyword.has_key?(kwargs, :event) === false do
-            print_help
+            print_help()
         else
             HTTPotion.start
 

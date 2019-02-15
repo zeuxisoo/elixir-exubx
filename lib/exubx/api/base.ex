@@ -6,7 +6,7 @@ defmodule ExUbx.Api.Base do
         Keyword.put headers, :"Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
         Keyword.put headers, :"Accept-Language", "en-US,en;q=0.8"
         Keyword.put headers, :"Connection", "keep-alive"
-        Keyword.put headers, :"User-Agent", user_agent
+        Keyword.put headers, :"User-Agent", user_agent()
     end
 
     defp user_agent do
