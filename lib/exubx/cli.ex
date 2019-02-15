@@ -43,7 +43,7 @@ defmodule ExUbx.CLI do
 
     def call_command(nil), do: nil
     def call_command(command) do
-        if Enum.member?(commands, command) do
+        if Map.has_key?(@commands, command) do
             @commands[command]
         else
             nil

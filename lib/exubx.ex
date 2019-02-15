@@ -41,7 +41,7 @@ defmodule ExUbx do
     def fetch_performance(cookie, event_id) do
         response = PerformanceApi.request_json(cookie, event_id)
         body     = response.body
-        data     = JsonParser.parse!(body)
+        data     = JsonParser.parse!(body, %{})
 
         performances = data["performanceList"]
         status       = data["performanceQuotaStatusList"]

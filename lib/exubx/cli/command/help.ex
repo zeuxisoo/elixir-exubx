@@ -12,7 +12,7 @@ defmodule ExUbx.CLI.Command.Help do
         ExUbx.CLI.commands
             |> Enum.each(fn(name) ->
                     module  = name |> ExUbx.CLI.call_command
-                    command = name |> to_string |> String.ljust(12)
+                    command = name |> to_string |> String.pad_trailing(12)
 
                     case List.keyfind(module.__info__(:attributes), :shortdoc, 0) do
                         { :shortdoc, [description] } ->
