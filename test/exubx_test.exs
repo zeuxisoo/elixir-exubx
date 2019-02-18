@@ -4,6 +4,8 @@ defmodule ExUbxTest do
 
     doctest ExUbx
 
+    @event_id 37672
+
     test "ExUbx.fetch_auth response is correct" do
         auth = ExUbx.fetch_auth
 
@@ -13,7 +15,7 @@ defmodule ExUbxTest do
 
     test "ExUbx.fetch_performance response is correct" do
         auth = ExUbx.fetch_auth
-        data = ExUbx.fetch_performance(auth.cookie, 30816)
+        data = ExUbx.fetch_performance(auth.cookie, @event_id)
 
         assert is_list(data.performances)
         assert is_list(data.status)
@@ -21,7 +23,7 @@ defmodule ExUbxTest do
 
     test "ExUbx.convert_performances response is correct" do
         auth   = ExUbx.fetch_auth
-        data   = ExUbx.fetch_performance(auth.cookie, 30816)
+        data   = ExUbx.fetch_performance(auth.cookie, @event_id)
         events = ExUbx.convert_performances(data)
 
         assert is_list(events)
